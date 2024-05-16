@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
 
               // -or- named routes
 
-              GoRouter.of(context).goNamed(RouteNamesClass.allProducts);
+              GoRouter.of(context).goNamed(RouteNamesClass.products);
             },
             child: const Text('Go to All Products'),
           ),
