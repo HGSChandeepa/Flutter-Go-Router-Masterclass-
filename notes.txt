@@ -14,3 +14,9 @@ All the notes for the Flutter Go Router
 10.Pass data to the user page
 11.Navigate to the user page with data (extra methode parameters)
 12.Navigate to the user page with data ( methode pathparameters)
+
+13.Named routes
+14.query parameters
+15.redirects in the routes
+
+16.push and pushNamed

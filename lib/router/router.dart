@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gorouter/pages/all_products.dart';
+import 'package:gorouter/pages/back.dart';
 import 'package:gorouter/pages/child_page.dart';
 import 'package:gorouter/pages/home_page.dart';
+import 'package:gorouter/pages/login.dart';
 import 'package:gorouter/pages/profile_page.dart';
 import 'package:gorouter/pages/user_page.dart';
+import 'package:gorouter/router/route_names.dart';
+
+import '../pages/age_page.dart';
 
 class RouterClass {
   final router = GoRouter(
     initialLocation: "/",
+
+    //redirect to login page if user is not valid
+    // redirect: (context, state) {
+    //   bool isValidUser = UserData.isUserValid;
+
+    //   if (isValidUser) {
+    //     return "/";
+    //   } else {
+    //     return "/login";
+    //   }
+    // },
 
     //error page
     errorPageBuilder: (context, state) {
@@ -64,7 +80,7 @@ class RouterClass {
 
       //user page with path parameter
       GoRoute(
-        name: "user",
+        name: RouteNamesClass.user,
         path: '/user/:name',
         builder: (context, state) {
           return UserPage(
@@ -75,10 +91,38 @@ class RouterClass {
 
       //all products page
       GoRoute(
-        name: "products",
+        name: RouteNamesClass.allProducts,
         path: '/products',
         builder: (context, state) {
           return const AllProducts();
+        },
+      ),
+
+      //age page with query parameter
+      GoRoute(
+        name: RouteNamesClass.age,
+        path: '/age',
+        builder: (context, state) {
+          final int age = state.uri.queryParameters['age'] == null
+              ? 0
+              : int.parse(state.uri.queryParameters['age']!);
+          return AgePage(age: age);
+        },
+      ),
+
+      //login page
+      GoRoute(
+        path: '/login',
+        builder: (context, state) {
+          return const LoginPage();
+        },
+      ),
+
+      //back page
+      GoRoute(
+        path: '/back',
+        builder: (context, state) {
+          return const BackPage();
         },
       ),
     ],
