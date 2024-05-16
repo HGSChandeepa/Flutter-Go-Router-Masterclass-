@@ -1,0 +1,16 @@
+All the notes for the Flutter Go Router
+
+1.Installation
+2.Create the Router class
+3.Add the routes for the Home and Profile pages
+4.Add the Navigator to the main.dart file
+5.Navigate to the Home and Profile pages
+
+6.error handling route for the not found page
+7.Navigate to the not found page
+8.creating nested routes
+9.Navigate to the nested routes
+
+10.Pass data to the user page
+11.Navigate to the user page with data (extra methode parameters)
+12.Navigate to the user page with data ( methode pathparameters)
